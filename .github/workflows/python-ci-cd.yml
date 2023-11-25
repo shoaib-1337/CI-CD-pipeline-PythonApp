@@ -1,4 +1,4 @@
-name: Python CI/CD with Docker
+name: Java Maven CI/CD with Docker
 
 on:
   push:
@@ -18,10 +18,10 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t shoaib1337/ci-cd-pythonapp .
-        docker tag shoaib1337/ci-cd-pythonapp shoaib1337/ci-cd-pythonapp:latest
+        docker build -t shoaib1337/ci-cd-java-maven-app .
+        docker tag shoaib1337/ci-cd-java-maven-app shoaib1337/ci-cd-java-maven-app:latest
 
     - name: Push Docker Image to Docker Hub
       run: |
-        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-        docker push shoaib1337/ci-cd-pythonapp:latest
+        echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+        docker push shoaib1337/ci-cd-java-maven-app:latest
