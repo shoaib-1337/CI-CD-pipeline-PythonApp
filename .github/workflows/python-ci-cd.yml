@@ -20,7 +20,7 @@ jobs:
       run: |
         docker buildx create --use
         docker buildx inspect --bootstrap
-        docker buildx build --platform linux/amd64,linux/arm64 -t your-dockerhub-username/your-image-name:latest .
+        docker buildx build --platform linux/amd64,linux/arm64 -t hoaib1337/ci-cd-pythonapp .
 
     - name: Push Docker Image to Docker Hub
       run: |
