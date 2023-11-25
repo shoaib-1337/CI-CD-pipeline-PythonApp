@@ -16,6 +16,10 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
+    - name: Remove existing Docker image locally (optional)
+      run: |
+        docker rmi -f shoaib1337/ci-cd-pythonapp || true
+
     - name: Build Docker Image
       run: |
         docker buildx create --use
